@@ -29,8 +29,8 @@ def to_representation(self, obj):
                   "telephone_number": user.telephone_number,
                   'account': {
                         'id': account.id,
-                        'balance': account.balance,
-                        'lastChangeDate': account.lastChangeDate,
-                        'isActive': account.isActive
+                        #'balance': account.balance,
+                        #'lastChangeDate': account.lastChangeDate,
+                        #'isActive': account.isActive
                   }
 }

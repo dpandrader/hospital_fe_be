@@ -12,6 +12,7 @@ class UserManager(BaseUserManager):
         user.set_password(password)
         user.save(using=self._db)
         return user
+
   def create_superuser(self, username, password):
     """
     Creates and saves a superuser with the given username and password.
@@ -29,12 +30,13 @@ class User(AbstractBaseUser, PermissionsMixin):
       username = models.CharField('Username', max_length = 15, unique=True)
       password = models.CharField('Password', max_length = 256)
       name = models.CharField('Name', max_length = 50)
+      email = models.EmailField('Email', max_length = 100)
       lastname= models.CharField('Lastname', max_length = 50)
       birth_date = models.CharField('Birth_date', max_length = 15)
       address = models.CharField('Address', max_length = 30)
       city = models.CharField('City', max_length = 20)
       telephone_number = models.CharField('Telephone_number', max_length = 30)
-      email = models.EmailField('Email', max_length = 100)
+      
       def save(self, **kwargs):
             some_salt = 'mMUj0DrIK6vgtdIYepkIxN'
             self.password = make_password(self.password, some_salt)
