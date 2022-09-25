@@ -3,4 +3,4 @@ from rest_framework import serializers
 class MedicoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Medico
-        #fields = ['balance', 'lastChangeDate', 'isActive']
+        fields = ['user', 'especialidad']
