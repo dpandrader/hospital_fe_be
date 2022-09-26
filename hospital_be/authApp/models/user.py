@@ -7,14 +7,14 @@ class UserManager(BaseUserManager):
     
     if not username:
         raise ValueError('Users must have an username')
-        user = self.model(username=username)
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
+    user = self.model(username=username)
+    user.set_password(password)
+    user.save(using=self._db)
+    return user
 
   def create_superuser(self, username, password):
     
-    user = self.create_user(
+    user = self.create_ser(
       username=username,
       password=password,
       )

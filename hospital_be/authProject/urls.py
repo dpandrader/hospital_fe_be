@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.urls import path
-from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 from authApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', TokenObtainPairView.as_view()),
-    path('refresh/', TokenRefreshView.as_view()),
-    path('user/', views.UserCreateView.as_view()),
-    path('user/<int:pk>/', views.UserDetailView.as_view()),
-    ]
+    path('user/', views.UserListaView.as_view()),  
+    path('user/<int:pk>/', views.UserRetrieveUpdateDeleteView.as_view()),  
+    path('medico/', views.MedicoListCreateView.as_view()),  
+    path('medico/<int:pk>/', views.MedicoRetrieveUpdateView.as_view()), 
+    path('paciente/', views.PacienteListCreateView.as_view()),  
+    path('paciente/<int:pk>/', views.PacienteRetrieveUpdateView.as_view()), 
+]
