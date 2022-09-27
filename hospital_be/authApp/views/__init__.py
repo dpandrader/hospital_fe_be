@@ -1,2 +1,3 @@
-from .userCreateView import UserCreateView
-from .userDetailView import UserDetailView
+from .userView import UserListaView, UserRetrieveUpdateDeleteView
+from .medicoView import MedicoListCreateView, MedicoRetrieveUpdateView
+from .pacienteView import PacienteListCreateView, PacienteRetrieveUpdateView
