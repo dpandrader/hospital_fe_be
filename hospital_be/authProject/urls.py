@@ -10,4 +10,4 @@ urlpatterns = [
     path('medico/<int:pk>/', views.MedicoRetrieveUpdateView.as_view()), 
     path('paciente/', views.PacienteListCreateView.as_view()),  
     path('paciente/<int:pk>/', views.PacienteRetrieveUpdateView.as_view()), 
-    ]
+]
