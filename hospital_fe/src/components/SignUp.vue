@@ -14,30 +14,31 @@
                 <input type="password" v-model="user.password" placeholder="contraseña">
                 <br>
 
-                <input type="text" v-model="user.name" placeholder="Nombres">
+                <input type="text" v-model="user.nombres" placeholder="Nombres">
                 <br>
 
-                <input type="text" v-model="user.lastname" placeholder="Apellidos">
+                <input type="text" v-model="user.identificacion" placeholder="identificacion">
                 <br>
 
-                <input type="text" v-model="user.birth_date" placeholder="Fecha Nacimineto">
+                <input type="text" v-model="user.apellido" placeholder="Apellidos">
                 <br>
 
-                <input type="text" v-model="user.address" placeholder="Direccion">
+                <input type="text" v-model="user.fecha_nacimiento" placeholder="Fecha Nacimineto">
                 <br>
 
-                <input type="text" v-model="user.city" placeholder="Ciudad">
+                <input type="text" v-model="user.direccion" placeholder="Direccion">
                 <br>
 
-                <input type="text" v-model="user.telephone_number" placeholder="Numero Telefonico">
+                <input type="text" v-model="user.ciudad" placeholder="Ciudad">
+                <br>
+
+                <input type="text" v-model="user.numero_telefonico" placeholder="Numero Telefonico">
                 <br>
 
                 <input type="email" v-model="user.email" placeholder="Email">
                 <br>
 
-                <input type="number" v-model="user.account.balance" placeholder="Initial Balance">
-                <br>
-
+               
                 <button type="submit">Registrarse</button>
             </form>
         </div>
@@ -56,17 +57,14 @@ export default {
             user: {
                 username: "",
                 password: "",
-                name: "",
-                lastname: "",
-                birth_date: "",
-                address: "",
-                city: "",
-                telephone_number: "",
+                nombres: "",
+                identificacion: "",
+                apellido: "",
+                fecha_nacimiento: "",
+                direccion: "",
+                ciudad "",
+                numero_telefonico: "",
                 email: "",
-                account: {
-                    lastChangeDate: (new Date()).toJSON().toString(),
-                    balance: 0,
-                    isActive: true
                 }
             }
         }
