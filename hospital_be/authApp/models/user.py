@@ -28,6 +28,7 @@ class User(AbstractBaseUser, PermissionsMixin):
       username = models.CharField('Username', max_length = 15, unique=True)
       password = models.CharField('Password', max_length = 256)
       nombre = models.CharField('Nombre', max_length = 50)
+      identificacion=models.CharField('Identificacion', max_length = 50)
       email = models.EmailField('Email', max_length = 100)
       apellido= models.CharField('Apellido', max_length = 50)
       fecha_nacimiento = models.CharField('Fecha_nacimiento', max_length = 15)
