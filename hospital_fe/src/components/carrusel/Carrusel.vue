@@ -76,6 +76,11 @@ export default {
             this.startSlideTimer();
         },
 
+        next(step = 1){
+            this._next(step);
+            this.startSlideTimer();
+        },
+
         _next(step = 1){
             const index= 
                 this.currentSlide <this.slides.length -1? this.currentSlide + step : 0;
@@ -83,11 +88,7 @@ export default {
             this.direction = "right";
         },
 
-        next(step = 1){
-            this._next(step);
-            this.startSlideTimer();
-        },
-
+        
         startSlideTimer(){
             this.stopSlideTimer();
             this.slideInterval= setInterval(() =>{
@@ -108,13 +109,14 @@ export default {
             }
         },
        
-    mounted(){
-        this.startSlideTimer();
-    },
+        mounted(){
+            this.startSlideTimer();
+        },
 
-    beforeUnmount(){
-        this.stopSlideTimer();   
-    },     
+        beforeUnmount(){
+            this.stopSlideTimer();   
+        },     
+    }
 }
 </script>
 

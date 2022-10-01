@@ -32,8 +32,8 @@
 
 
 <script>
-import Carrusel from "./components/carrusel/Carrusel.vue";
 
+import Carrusel from "./components/carrusel/Carrusel.vue";
 export default {
   name: 'App',
   
