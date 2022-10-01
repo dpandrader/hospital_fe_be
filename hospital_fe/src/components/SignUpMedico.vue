@@ -1,20 +1,21 @@
 <template>
 
-    <div class="signUp_user">
+    <div class="signUp_medico">
         <div class="logo">
             <img src="../assets/atenea.jpg" alt="logo">
         </div>
         
-        <div class="container_signUp_user">
+        <div class="container_signUp_medico">
             <br>
             <br>
-            <h2>Registro de Paciente</h2>
-            
+            <br>
+            <h2>Registro de Medico</h2>
             
             <form v-on:submit.prevent="processSignUp" >
 
                 <input type="text" v-model="user.username" placeholder="Usuario">
                 <br>
+                
                 <input type="password" v-model="user.password" placeholder="Contraseña">
                 <br>
 
@@ -24,7 +25,7 @@
                 <input type="text" v-model="user.apellido" placeholder="Apellidos">
                 <br>
 
-                <input type="text" v-model="user.identificacion" placeholder="Identificacion">
+                <input type="text" v-model="user.identificacion" placeholder="Identificación">
                 <br>
                 
                 <input type="text" v-model="user.fecha_nacimiento" placeholder="Fecha Nacimineto">
@@ -36,12 +37,15 @@
                 <input type="text" v-model="user.ciudad" placeholder="Ciudad">
                 <br>
 
-                <input type="text" v-model="user.numero_telefonico" placeholder="Numero Telefonico">
+                <input type="text" v-model="user.numero_telefonico" placeholder="Número Telefónico">
                 <br>
 
                 <input type="email" v-model="user.email" placeholder="Email">
                 <br>
 
+                <input type="text" v-model="user.especialidad" placeholder="Especialidad">
+                <br>
+                
                 <button type="submit">Registrarse</button>
             </form>
         </div>
@@ -54,7 +58,7 @@
 import axios from 'axios';
 
 export default {
-    name: "SignUp",
+    name: "SignUpMedico",
     data: function(){
         return {
             user: {
@@ -68,7 +72,9 @@ export default {
                 ciudad: "",
                 numero_telefonico: "",
                 email: "",
+                especialidad: "",
                 }
+                
             }
         },
     
@@ -103,7 +109,7 @@ export default {
 
 <style>
 
-    .signUp_user{
+    .signUp_medico{
         margin: 0;
         padding: 0%;
         height: 100%;
@@ -114,7 +120,7 @@ export default {
         align-items: center;
     }
 
-    .container_signUp_user {
+    .container_signUp_medico {
         border: 3px solid #1371ab;
         border-radius: 40px;
         width: 25%;
@@ -126,15 +132,15 @@ export default {
         align-items: center;
     }
     
-    .signUp_user h2{
+    .signUp_medico h2{
         color: #1371ab;
     }
 
-    .signUp_user form{
+    .signUp_medico form{
     width: 70%;
     }
 
-    .signUp_user input{
+    .signUp_medico input{
         height: 28px;
         width: 100%;
 
@@ -146,7 +152,7 @@ export default {
         border-radius: 10px;
     }
 
-    .signUp_user button{
+    .signUp_medico button{
         width: 100%;
         height: 40px;
         
@@ -159,7 +165,7 @@ export default {
         margin: 5px 0 25px 0;
     }
 
-    .signUp_user button:hover{
+    .signUp_medico button:hover{
         color: #E5E7E9;
         background: #84b3d3;
         border: 1px solid #1371ab;

@@ -1,20 +1,18 @@
 <template>
+  <carrusel :slides="slides" :interval="3000" controls indicators></carrusel>
+  
   <div id="app" class="app">
 
-    <div class="header">
+      <div class="header">
       
       <h1>Hospital Atenea</h1><img src="./assets/logo_atena.jpg" alt="" class="logo1">
     
       <nav>
         <button v-if="is_auth" v-on:click="loadHome"> Inicio </button>
         <button v-if="is_auth" v-on:click="loadAccount"> Cuenta </button>
-        <button v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>
-        <button v-if="!is_auth" v-on:click="loadLogIn" > Iniciar Sesión </button>
-        <button v-if="!is_auth" v-on:click="loadSignUp" > Registrarse </button>
-        
+        <button v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>       
       </nav>
     </div>
-
 
     <div class="main-component">
       <router-view
@@ -25,8 +23,6 @@
       </router-view>
     </div>
 
-    
-
     <div class="footer">
       <h2>Hospital Atenea 2022</h2>
     </div>
@@ -36,6 +32,8 @@
 
 
 <script>
+import Carrusel from "./components/carrusel/Carrusel.vue";
+
 export default {
   name: 'App',
   
@@ -45,7 +43,18 @@ export default {
     }
   },
   
+  data_carrusel:()=> ({
+    slides:[
+      "./components/carrusel/medicamentos.jpeg",
+      "./assets/medicamentos.jpeg",
+      "./assets/medicamentos1.jpeg",
+
+    ],
+
+  }),
+
   components: {
+    Carrusel
   },
 
   methods:{
@@ -70,17 +79,21 @@ export default {
       this.$router.push({ name: "home" });
     },
 
+    loadsignUpMedico: function() {
+      this.$router.push({ name: "signUpMedico" });
+    },
+
+    loadsignUpEnfermero: function() {
+      this.$router.push({ name: "signUpEnfermero" });
+    },
+
     logOut: function () {
       localStorage.clear();
       alert("Sesión Cerrada");
       this.verifyAuth();
     },
 
-    loadAccount: function () {
-      alert("mostrando información");
-      this.$router.push({ name: "account" });
-    },
-
+    
     completedLogIn: function(data) {
       localStorage.setItem("isAuth", true);
       localStorage.setItem("username", data.username);
@@ -96,7 +109,6 @@ export default {
     },
 
   },
-
 
   created: function(){
     this.verifyAuth()
@@ -118,7 +130,7 @@ export default {
     padding: 0;
     width: 100%;
     height: 10vh;
-    min-height: 100px;
+    min-height: 75px;
 
     background-color: #1371ab ;
     color:#E5E7E9 ;
@@ -135,28 +147,13 @@ export default {
 
   .header nav{
     height: 100%;
-    width: 20%;
+    width: 30%;
 
     display: flex;
     justify-content: space-around;
     align-items: center;
 
     font-size: 20px;
-  }
-
-  .header nav button{
-    color: #E5E7E9;
-    background: #1371ab;
-    border: 1px solid #E5E7E9;
-
-    border-radius: 10px;
-    padding: 10px 20px;
-  }
-
-  .header nav button:hover{
-    color: #283747;
-    background: #E5E7E9;
-    border: 1px solid #E5E7E9;
   }
 
   .main-component{
@@ -172,7 +169,7 @@ export default {
     padding: 0;
     width: 100%;
     height: 10vh;
-    min-height: 100px;
+    min-height: 75px;
     background-color: #1371ab;
     color: #E5E7E9;
   }
